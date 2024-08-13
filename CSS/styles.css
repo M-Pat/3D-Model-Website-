@@ -1,38 +1,145 @@
+/* General Styles */
 body {
     font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    color: #212529;
 }
 
-.navbar-brand img {
+.navbar-brand img,
+.footer img {
     filter: invert(0%);
 }
 
+/* Navbar Styles */
+.navbar-light .navbar-nav .nav-link {
+    color: #212529;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.navbar-light .navbar-nav .nav-link:hover {
+    color: #007bff;
+}
+
+.navbar-toggler-icon {
+    background-color: #007bff;
+}
+
+/* Hero Section */
 .hero {
     background-color: #f8f9fa;
+    text-align: center;
+    padding: 50px 0;
+    margin-bottom: 30px;
 }
 
+.hero h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #212529;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    color: #6c757d;
+}
+
+
+/* Card Styles */
 .card {
     border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Quotes Section */
+.quotes {
+    padding: 50px 0;
+    background-color: #ffffff;
+    border-top: 1px solid #e7e7e7;
+}
+
+/* Footer Styles */
 .footer {
     background-color: #f8f9fa;
     border-top: 1px solid #e7e7e7;
+    padding: 30px 0;
+    text-align: left;
 }
 
 .footer h5 {
     margin-bottom: 20px;
+    font-size: 1.1rem;
+    color: #212529;
+    font-weight: 600;
 }
 
 .footer a {
     color: #212529;
     text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
 }
 
 .footer a:hover {
+    color: #007bff;
     text-decoration: underline;
 }
 
-.footer img {
-    filter: invert(0%);
+/* Modal Styles */
+.modal-content {
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.modal-header {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.modal-body {
+    padding: 30px;
+}
+
+.form-label i {
+    margin-right: 10px;
+    color: #6c757d;
+}
+
+#authSubmitButton {
+    background-color: #28a745;
+    border: none;
+    color: #fff;
+    font-weight: 600;
+    padding: 10px 20px;
+    transition: background-color 0.3s ease;
+}
+
+#authSubmitButton:hover {
+    background-color: #218838;
+}
+
+#switchAuthText {
+    font-size: 0.9em;
+    margin-top: 20px;
+}
+
+#switchAuthLink {
+    color: #28a745;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+#switchAuthLink:hover {
+    color: #218838;
+    text-decoration: underline;
 }
