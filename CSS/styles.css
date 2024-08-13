@@ -1,0 +1,38 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+.navbar-brand img {
+    filter: invert(0%);
+}
+
+.hero {
+    background-color: #f8f9fa;
+}
+
+.card {
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.footer {
+    background-color: #f8f9fa;
+    border-top: 1px solid #e7e7e7;
+}
+
+.footer h5 {
+    margin-bottom: 20px;
+}
+
+.footer a {
+    color: #212529;
+    text-decoration: none;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
+
+.footer img {
+    filter: invert(0%);
+}
