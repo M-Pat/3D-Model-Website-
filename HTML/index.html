@@ -49,7 +49,7 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="hero bg-light text-center py-5">
+    <section id="header" class="hero bg-light text-center py-5">
         <div class="container">
             <h1 class="display-4">3D Model Marketplace</h1>
             <p class="lead">Trade, Like, Save!</p>
@@ -228,5 +228,20 @@
     <script src="../js/login.js"></script>
     <script src="../js/logout.js"></script>
     <script src="../js/register.js"></script>
+    <script src="../Resources/three.min.js"></script>
+    <script src="../Resources/vanta.waves.min.js"></script>
+    <script>
+        VANTA.WAVES({
+        el: "#header",
+        mouseControls: true,
+        touchControls: true,
+        gyroControls: false,
+        minHeight: 200.00,
+        minWidth: 200.00,
+        scale: 1.00,
+        scaleMobile: 1.00,
+        color: 0x9263de
+        })
+    </script>
 </body>
 </html>

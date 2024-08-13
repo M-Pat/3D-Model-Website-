@@ -30,7 +30,6 @@ body {
 
 /* Hero Section */
 .hero {
-    background-image: url(../Resources/wallpaper.png);
     background-size: cover;
     background-position: center; 
     background-repeat: no-repeat; 
@@ -155,5 +154,14 @@ border:#212529
 #switchAuthLink:hover {
     color: #218838;
     text-decoration: underline;
+}
+
+#header{
+    background-size: cover;
+    background-position: center; 
+    background-repeat: no-repeat; 
+    text-align: center;
+    padding: 50px 0;
+    margin-bottom: 30px;
 }
 
