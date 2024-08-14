@@ -1,4 +1,4 @@
-/* General Styles */
+/* Existing General Styles */
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
@@ -13,7 +13,7 @@ body {
     filter: invert(0%);
 }
 
-/* Navbar Styles */
+/* Existing Navbar Styles */
 .navbar-light .navbar-nav .nav-link {
     color: #212529;
     font-weight: 500;
@@ -21,14 +21,14 @@ body {
 }
 
 .navbar-light .navbar-nav .nav-link:hover {
-    color:darksalmon;
+    color:rgba(98, 195, 219, 0.685);
 }
 
 .navbar-toggler-icon {
-    background-color: darksalmon;
+    background-color: rgb(104, 234, 243);
 }
 
-/* Hero Section */
+/* Existing Hero Section */
 .hero {
     background-size: cover;
     background-position: center; 
@@ -49,8 +49,7 @@ body {
     color: #212529;
 }
 
-
-/* Card Styles */
+/* Existing Card Styles */
 .card {
     border-radius: 10px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -62,14 +61,14 @@ body {
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
-/* Quotes Section */
+/* Existing Quotes Section */
 .quotes {
     padding: 50px 0;
     background-color: #ffffff;
     border-top: 1px solid #e7e7e7;
 }
 
-/* Footer Styles */
+/* Existing Footer Styles */
 .footer {
     background-color: #f8f9fa;
     border-top: 1px solid #e7e7e7;
@@ -96,7 +95,7 @@ body {
     text-decoration: underline;
 }
 
-/* Modal Styles */
+/* Existing Modal Styles */
 .modal-content {
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
@@ -117,13 +116,13 @@ body {
 }
 
 #authButton{
-background-color: darksalmon;
-border:#212529
+    background-color: rgb(136, 226, 241);
+    border: #212529;
 }
 
 #authButton:hover{
-    background-color: rgba(233, 150, 122, 0.87);
-    border:#191c1f
+    background-color: rgba(42, 171, 175, 0.87);
+    border: #191c1f;
 }
 
 #authSubmitButton {
@@ -156,12 +155,50 @@ border:#212529
     text-decoration: underline;
 }
 
-#header{
-    background-size: cover;
-    background-position: center; 
-    background-repeat: no-repeat; 
-    text-align: center;
-    padding: 50px 0;
+/* New Styles for Explore Page */
+
+/* Sidebar Styles */
+.sidebar {
+    background-color: #f8f9fa;
+    padding: 20px;
+    height: 100%;
+    border-right: 1px solid #e7e7e7;
+}
+
+.sidebar label {
+    font-weight: bold;
+    margin-top: 10px;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.sidebar .btn-group .btn {
+    margin-right: 5px;
+    margin-bottom: 5px;
+}
+
+.sidebar .form-check-label {
+    margin-left: 5px;
+}
+
+/* Price Slider */
+
+/*NEED TO MAKE*/
+
+/* New Search and Sorting Section */
+.header {
     margin-bottom: 30px;
 }
 
+.header input[type="text"] {
+    margin-right: 20px;
+}
+
+.header .btn-group .btn {
+    background-color: #f8f9fa;
+    border-color: #e7e7e7;
+}
+
+.header .btn-group .btn:hover {
+    background-color: #e7e7e7;
+}

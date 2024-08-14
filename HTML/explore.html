@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="../CSS/styles.css">
+</head>
+<body>
+
+    <!-- Header Section -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#"><img src="../Resources/logo.png" alt="Logo" width="30"></a>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="explore.html">Explore</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Community</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="profile.html">Profile</a>
+                    </li>
+                </ul>
+                <div class="d-flex">
+                    <button
+                id="authButton"
+                type="button"
+                class="btn btn-primary"
+                data-bs-toggle="modal"
+                data-bs-target="#loginModal"
+                onclick="openLoginPopup()"
+                >
+                Login / Register
+            </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar Filters -->
+            <div class="col-md-3 sidebar">
+                <div class="filter-section">
+                    <label>Keywords</label>
+                    <div class="btn-group mb-3">
+                        <button type="button" class="btn btn-secondary btn-sm">Spring <span class="badge bg-light text-dark">x</span></button>
+                        <button type="button" class="btn btn-secondary btn-sm">Smart <span class="badge bg-light text-dark">x</span></button>
+                        <button type="button" class="btn btn-secondary btn-sm">Modern <span class="badge bg-light text-dark">x</span></button>
+                    </div>
+                </div>
+
+                <div class="filter-section">
+                    <label>Label</label>
+                    <div class="form-check">
+                        <input class="form-check-input filter-checkbox" type="checkbox" value="" id="label1">
+                        <label class="form-check-label" for="label1">Label Description</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input filter-checkbox" type="checkbox" value="" id="label2">
+                        <label class="form-check-label" for="label2">Label Description</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input filter-checkbox" type="checkbox" value="" id="label3">
+                        <label class="form-check-label" for="label3">Label Description</label>
+                    </div>
+                </div>
+
+                <div class="filter-section">
+                    <label>Price</label>
+                    <input type="range" class="form-range price-slider" min="0" max="100" id="priceRange">
+                    <span>$0 - $100</span>
+                </div>
+
+                <div class="filter-section">
+                    <label>Color</label>
+                    <div class="form-check">
+                        <input class="form-check-input filter-checkbox" type="checkbox" value="" id="color1">
+                        <label class="form-check-label" for="color1">Label</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input filter-checkbox" type="checkbox" value="" id="color2">
+                        <label class="form-check-label" for="color2">Label</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input filter-checkbox" type="checkbox" value="" id="color3">
+                        <label class="form-check-label" for="color3">Label</label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Products Grid -->
+            <div class="col-md-9">
+                <div class="header d-flex justify-content-between align-items-center">
+                    <input type="text" class="form-control w-50" placeholder="Search">
+                    <div class="btn-group" role="group" aria-label="Basic example">
+                        <button type="button" class="btn btn-secondary">New</button>
+                        <button type="button" class="btn btn-secondary">Price ascending</button>
+                        <button type="button" class="btn btn-secondary">Price descending</button>
+                        <button type="button" class="btn btn-secondary">Rating</button>
+                    </div>
+                </div>
+                <div class="row g-3">
+                     <!-- Product Card 1 -->
+                     <div class="col-md-4">
+                        <div class="product-card">
+                            <img src="product1.jpg" alt="Product 1">
+                            <p>Text</p>
+                            <p>$0</p>
+                        </div>
+                        </div>
+
+                        <!-- Product Card 2 -->
+                        <div class="col-md-4">
+                        <div class="product-card">
+                            <img src="product2.jpg" alt="Product 2">
+                            <p>Text</p>
+                            <p>$0</p>
+                        </div>
+                        </div>
+
+                        <!-- Product Card 3 -->
+                        <div class="col-md-4">
+                        <div class="product-card">
+                            <img src="product3.jpg" alt="Product 3">
+                            <p>Text</p>
+                            <p>$0</p>
+                         </div>
+                        </div>
+
+                        <!-- Product Card 4 -->
+                        <div class="col-md-4">
+                        <div class="product-card">
+                            <img src="product4.jpg" alt="Product 4">
+                            <p>Text</p>
+                            <p>$0</p>
+                        </div>
+                        </div>
+
+                        <!-- Product Card 5 -->
+                        <div class="col-md-4">
+                        <div class="product-card">
+                            <img src="product5.jpg" alt="Product 5">
+                            <p>Text</p>
+                            <p>$0</p>
+                        </div>
+                        </div>
+
+                        <!-- Product Card 6 -->
+                        <div class="col-md-4">
+                        <div class="product-card">
+                            <img src="product6.jpg" alt="Product 6">
+                            <p>Text</p>
+                            <p>$0</p>
+                        </div>
+                        </div>
+
+                        <!-- Product Card 7 -->
+                        <div class="col-md-4">
+                        <div class="product-card">
+                            <img src="product7.jpg" alt="Product 7">
+                            <p>Text</p>
+                            <p>$0</p>
+                            </div>
+                        </div>
+
+                        <!-- Product Card 8 -->
+                        <div class="col-md-4">
+                            <div class="product-card">
+                            <img src="product8.jpg" alt="Product 8">
+                            <p>Text</p>
+                            <p>$0</p>
+                            </div>
+                        </div>
+                        <!-- Product Card 9 -->
+                        <div class="col-md-4">
+                            <div class="product-card">
+                            <img src="product9.jpg" alt="Product 9">
+                            <p>Text</p>
+                            <p>$0</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Footer -->
+        <footer class="footer bg-light py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3">
+                    <img src="../Resources/logo.png" alt="Logo" width="30" height="30">
+                    <div class="social mt-3">
+                        <a href="#" class="me-3"><img src="../Resources/facebook.png" alt="Facebook" width="20"></a>
+                        <a h  ref="#" class="me-3"><img src="../Resources/twitter.png" alt="Twitter" width="20"></a>
+                        <a href="#" class="me-3"><img src="../Resources/instagram.png" alt="Instagram" width="20"></a>
+                        <a href="#"><img src="../Resources/linkedin.png" alt="LinkedIn" width="20"></a>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <h5>Contact us</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#">+385 912375334</a></li>
+                        <li><a href="#">+385 984401352</a></li>
+                        <li><a href="#">+385 916680021</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3">
+                    <h5>Navigate</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="explore.html">Explore
+                        <li><a href="#">Community</a></li>
+                        <li><a href="profile.html">Profile</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3">
+                        <h5>Resources</h5>
+                        <ul class="list-unstyled">
+                            <li><a href="#">Algebra</a></li>
+                            <li><a href="#">Imgur</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/login.js"></script>
+    <script src="../js/logout.js"></script>
+    <script src="../js/register.js"></script>
+
+</body>
+</html>
