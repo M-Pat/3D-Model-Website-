@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+    <changeSet id="1" author="postgres">
+        <createTable tableName="user">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="date_created" type="TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+            <column name="first_name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="email" type="VARCHAR(255)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="password" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="count_posts" type="INT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="2" author="postgres">
+        <createTable tableName="3dmodel">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="file" type="BLOB">
+                <constraints nullable="false"/>
+            </column>
+            <column name="user_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addForeignKeyConstraint
+                baseTableName="3dmodel"
+                baseColumnNames="user_id"
+                constraintName="fk_3dmodel_user"
+                referencedTableName="user"
+                referencedColumnNames="id"/>
+    </changeSet>
+
+    <changeSet id="3" author="postgres">
+        <createTable tableName="post">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="timestamp" type="TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+            <column name="price" type="DECIMAL(10,2)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="user_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="model_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addForeignKeyConstraint
+                baseTableName="post"
+                baseColumnNames="user_id"
+                constraintName="fk_post_user"
+                referencedTableName="user"
+                referencedColumnNames="id"/>
+
+        <addForeignKeyConstraint
+                baseTableName="post"
+                baseColumnNames="model_id"
+                constraintName="fk_post_model"
+                referencedTableName="3dmodel"
+                referencedColumnNames="id"/>
+    </changeSet>
+
+    <changeSet id="4" author="postgres">
+        <createTable tableName="post_downloaded_users">
+            <column name="post_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="user_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addForeignKeyConstraint
+                baseTableName="post_downloaded_users"
+                baseColumnNames="post_id"
+                constraintName="fk_post_downloaded_users_post"
+                referencedTableName="post"
+                referencedColumnNames="id"/>
+
+        <addForeignKeyConstraint
+                baseTableName="post_downloaded_users"
+                baseColumnNames="user_id"
+                constraintName="fk_post_downloaded_users_user"
+                referencedTableName="user"
+                referencedColumnNames="id"/>
+    </changeSet>
+
+    <changeSet id="5" author="postgres">
+        <createTable tableName="post_likedby_users">
+            <column name="post_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="user_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addForeignKeyConstraint
+                baseTableName="post_likedby_users"
+                baseColumnNames="post_id"
+                constraintName="fk_post_likedby_users_post"
+                referencedTableName="post"
+                referencedColumnNames="id"/>
+
+        <addForeignKeyConstraint
+                baseTableName="post_likedby_users"
+                baseColumnNames="user_id"
+                constraintName="fk_post_likedby_users_user"
+                referencedTableName="user"
+                referencedColumnNames="id"/>
+    </changeSet>
+
+</databaseChangeLog>
