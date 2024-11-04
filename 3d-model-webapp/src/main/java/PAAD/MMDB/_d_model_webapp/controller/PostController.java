@@ -1,23 +1,19 @@
-package PAAD.MMDB._d_model_webapp.service.impl;
+package PAAD.MMDB._d_model_webapp.controller;
 
 import PAAD.MMDB._d_model_webapp.models.Post;
 import PAAD.MMDB._d_model_webapp.repository.ModelRepository;
 import PAAD.MMDB._d_model_webapp.repository.PostRepository;
 import PAAD.MMDB._d_model_webapp.repository.UserRepository;
 import PAAD.MMDB._d_model_webapp.service.PostService;
-import lombok.AllArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
 
-@Slf4j
-@Service
-@AllArgsConstructor
-public class DefaultPostService implements PostService {
+@RestController
+@RequestMapping("/api/posts")
+public class PostController implements PostService {
 
     @Autowired
     private PostRepository postRepository;
@@ -29,6 +25,7 @@ public class DefaultPostService implements PostService {
     private ModelRepository modelRepository;  // Adjusted to use ModelRepository
 
     // Create a new Post (POST)
+    @PostMapping
     public ResponseEntity<Post> createPost(@RequestBody Post post) {
         if (!userRepository.existsById(post.getUser().getId()) ||
                 !modelRepository.existsById(post.getModel().getId())) {  // Adjusted to use ModelRepository
@@ -40,6 +37,7 @@ public class DefaultPostService implements PostService {
     }
 
     // Update an existing Post (PUT)
+    @PutMapping("/{id}")
     public ResponseEntity<Post> updatePost(@PathVariable Long id, @RequestBody Post postDetails) {
         Optional<Post> postOptional = postRepository.findById(id);
 
@@ -60,6 +58,7 @@ public class DefaultPostService implements PostService {
     }
 
     // Delete a Post (DELETE)
+    @DeleteMapping("/{id}")
     public ResponseEntity<Void> deletePost(@PathVariable Long id) {
         Optional<Post> postOptional = postRepository.findById(id);
 

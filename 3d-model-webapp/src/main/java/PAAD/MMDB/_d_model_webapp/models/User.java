@@ -26,14 +26,6 @@ public class User {
     private Date dateCreated;
 
     @NotNull
-    @Column(name = "first_name")
-    private String firstName;
-
-    @NotNull
-    @Column(name = "last_name")
-    private String lastName;
-
-    @NotNull
     @Column(name = "email")
     private String email;
 

@@ -14,6 +14,8 @@ public class ThreeDModelDTO {
     @Id
     private Long id;
     private String name;
+
+    //TODO filetype glb setup
     private byte[] file;
     private User user;
 }
