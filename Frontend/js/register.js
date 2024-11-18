@@ -6,7 +6,7 @@ $(document).ready(function() {
         var password = $('#regPassword').val();
 
         $.ajax({
-            url: 'https://www.fulek.com/data/api/user/register', 
+            url: 'https://www.fulek.com/data/api/user/register',
             type: 'POST',
             contentType: 'application/json',
             data: JSON.stringify({

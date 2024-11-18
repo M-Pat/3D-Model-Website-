@@ -16,8 +16,6 @@ import java.util.List;
 public class UserDTO {
     private Long id;
     private Date dateCreated;
-    private String firstName;
-    private String lastName;
     private String email;
     private String password;
     private List<ThreeDModel> models;

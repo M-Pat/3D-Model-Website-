@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <databaseChangeLog
         xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
 
+    <!-- Version 1.0.0 -->
     <changeSet id="1" author="postgres">
         <createTable tableName="user">
             <column name="id" type="BIGINT" autoIncrement="true">
@@ -22,7 +24,7 @@
             <column name="email" type="VARCHAR(255)">
                 <constraints nullable="false" unique="true"/>
             </column>
-            <column name="password" type="VARCHAR(255)">
+            <column name="pw" type="VARCHAR(255)">
                 <constraints nullable="false"/>
             </column>
             <column name="count_posts" type="INT">
@@ -32,27 +34,25 @@
     </changeSet>
 
     <changeSet id="2" author="postgres">
-        <createTable tableName="3dmodel">
+        <createTable tableName="3d_models">
             <column name="id" type="BIGINT" autoIncrement="true">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
             <column name="name" type="VARCHAR(255)">
                 <constraints nullable="false"/>
             </column>
-            <column name="file" type="BLOB">
+            <column name="file_id" type="BIGINT">
                 <constraints nullable="false"/>
             </column>
             <column name="user_id" type="BIGINT">
                 <constraints nullable="false"/>
             </column>
         </createTable>
-
-        <addForeignKeyConstraint
-                baseTableName="3dmodel"
-                baseColumnNames="user_id"
-                constraintName="fk_3dmodel_user"
-                referencedTableName="user"
-                referencedColumnNames="id"/>
+        <addForeignKeyConstraint baseTableName="3d_models"
+                                 baseColumnNames="user_id"
+                                 referencedTableName="user"
+                                 referencedColumnNames="id"
+                                 onDelete="CASCADE" constraintName="FK_user"/>
     </changeSet>
 
     <changeSet id="3" author="postgres">
@@ -63,30 +63,26 @@
             <column name="timestamp" type="TIMESTAMP">
                 <constraints nullable="false"/>
             </column>
-            <column name="price" type="DECIMAL(10,2)">
-                <constraints nullable="false"/>
-            </column>
             <column name="user_id" type="BIGINT">
                 <constraints nullable="false"/>
             </column>
             <column name="model_id" type="BIGINT">
                 <constraints nullable="false"/>
             </column>
+            <column name="price" type="DECIMAL(19,2)">
+                <constraints nullable="false"/>
+            </column>
         </createTable>
-
-        <addForeignKeyConstraint
-                baseTableName="post"
-                baseColumnNames="user_id"
-                constraintName="fk_post_user"
-                referencedTableName="user"
-                referencedColumnNames="id"/>
-
-        <addForeignKeyConstraint
-                baseTableName="post"
-                baseColumnNames="model_id"
-                constraintName="fk_post_model"
-                referencedTableName="3dmodel"
-                referencedColumnNames="id"/>
+        <addForeignKeyConstraint baseTableName="post"
+                                 baseColumnNames="user_id"
+                                 referencedTableName="user"
+                                 referencedColumnNames="id"
+                                 onDelete="CASCADE" constraintName="FK_user"/>
+        <addForeignKeyConstraint baseTableName="post"
+                                 baseColumnNames="model_id"
+                                 referencedTableName="3d_models"
+                                 referencedColumnNames="id"
+                                 onDelete="CASCADE" constraintName="FK_model"/>
     </changeSet>
 
     <changeSet id="4" author="postgres">
@@ -98,20 +94,16 @@
                 <constraints nullable="false"/>
             </column>
         </createTable>
-
-        <addForeignKeyConstraint
-                baseTableName="post_downloaded_users"
-                baseColumnNames="post_id"
-                constraintName="fk_post_downloaded_users_post"
-                referencedTableName="post"
-                referencedColumnNames="id"/>
-
-        <addForeignKeyConstraint
-                baseTableName="post_downloaded_users"
-                baseColumnNames="user_id"
-                constraintName="fk_post_downloaded_users_user"
-                referencedTableName="user"
-                referencedColumnNames="id"/>
+        <addForeignKeyConstraint baseTableName="post_downloaded_users"
+                                 baseColumnNames="post_id"
+                                 referencedTableName="post"
+                                 referencedColumnNames="id"
+                                 onDelete="CASCADE" constraintName="FK_post"/>
+        <addForeignKeyConstraint baseTableName="post_downloaded_users"
+                                 baseColumnNames="user_id"
+                                 referencedTableName="user"
+                                 referencedColumnNames="id"
+                                 onDelete="CASCADE" constraintName="FK_user"/>
     </changeSet>
 
     <changeSet id="5" author="postgres">
@@ -123,20 +115,16 @@
                 <constraints nullable="false"/>
             </column>
         </createTable>
-
-        <addForeignKeyConstraint
-                baseTableName="post_likedby_users"
-                baseColumnNames="post_id"
-                constraintName="fk_post_likedby_users_post"
-                referencedTableName="post"
-                referencedColumnNames="id"/>
-
-        <addForeignKeyConstraint
-                baseTableName="post_likedby_users"
-                baseColumnNames="user_id"
-                constraintName="fk_post_likedby_users_user"
-                referencedTableName="user"
-                referencedColumnNames="id"/>
+        <addForeignKeyConstraint baseTableName="post_likedby_users"
+                                 baseColumnNames="post_id"
+                                 referencedTableName="post"
+                                 referencedColumnNames="id"
+                                 onDelete="CASCADE" constraintName="FK_post"/>
+        <addForeignKeyConstraint baseTableName="post_likedby_users"
+                                 baseColumnNames="user_id"
+                                 referencedTableName="user"
+                                 referencedColumnNames="id"
+                                 onDelete="CASCADE" constraintName="FK_user"/>
     </changeSet>
 
 </databaseChangeLog>

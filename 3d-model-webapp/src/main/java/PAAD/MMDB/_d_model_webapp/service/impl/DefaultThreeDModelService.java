@@ -4,14 +4,18 @@ import PAAD.MMDB._d_model_webapp.models.ThreeDModel;
 import PAAD.MMDB._d_model_webapp.repository.ModelRepository;
 import PAAD.MMDB._d_model_webapp.repository.UserRepository;
 import PAAD.MMDB._d_model_webapp.service.ThreeDModelService;
+import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
 
-@RestController
-@RequestMapping("/api/models")
+@Slf4j
+@Service
+@AllArgsConstructor
 public class DefaultThreeDModelService implements ThreeDModelService {
 
     @Autowired
@@ -32,7 +36,6 @@ public class DefaultThreeDModelService implements ThreeDModelService {
     }
 
     // Update an existing Model (PUT)
-    @PutMapping("/{id}")
     public ResponseEntity<ThreeDModel> updateModel(@PathVariable Long id, @RequestBody ThreeDModel modelDetails) {
         Optional<ThreeDModel> modelOptional = modelRepository.findById(id);
 
@@ -50,7 +53,6 @@ public class DefaultThreeDModelService implements ThreeDModelService {
     }
 
     // Delete a Model (DELETE)
-    @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteModel(@PathVariable Long id) {
         Optional<ThreeDModel> modelOptional = modelRepository.findById(id);
 
