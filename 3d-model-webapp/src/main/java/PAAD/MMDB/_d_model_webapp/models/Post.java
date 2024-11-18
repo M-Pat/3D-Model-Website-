@@ -27,12 +27,10 @@ public class Post {
 
     @ManyToOne
     @JoinColumn(name = "user_id")
-    @Column(name = "user_id")
     private User user;
 
     @ManyToOne
     @JoinColumn(name = "model_id")
-    @Column(name = "model")
     private ThreeDModel model;
 
     @NotNull

@@ -25,14 +25,12 @@ public class ThreeDModel {
 
 
     @OneToOne(
-            cascade = CascadeType.ALL,
-            mappedBy = "file_id"
+            cascade = CascadeType.ALL
     )
-    @Column(name = "file")
+    @JoinColumn(name = "file_id")
     private ModelFile file;
 
     @ManyToOne
     @JoinColumn(name = "user_id")
-    @Column(name = "user_id")
     private User user;
 }

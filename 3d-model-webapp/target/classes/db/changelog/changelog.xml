@@ -34,21 +34,21 @@
     </changeSet>
 
     <changeSet id="2" author="postgres">
-        <createTable tableName="model">
+        <createTable tableName="3d_models">
             <column name="id" type="BIGINT" autoIncrement="true">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
             <column name="name" type="VARCHAR(255)">
                 <constraints nullable="false"/>
             </column>
-            <column name="file" type="BLOB">
+            <column name="file_id" type="BIGINT">
                 <constraints nullable="false"/>
             </column>
             <column name="user_id" type="BIGINT">
                 <constraints nullable="false"/>
             </column>
         </createTable>
-        <addForeignKeyConstraint baseTableName="model"
+        <addForeignKeyConstraint baseTableName="3d_models"
                                  baseColumnNames="user_id"
                                  referencedTableName="user"
                                  referencedColumnNames="id"
@@ -80,13 +80,13 @@
                                  onDelete="CASCADE" constraintName="FK_user"/>
         <addForeignKeyConstraint baseTableName="post"
                                  baseColumnNames="model_id"
-                                 referencedTableName="model"
+                                 referencedTableName="3d_models"
                                  referencedColumnNames="id"
                                  onDelete="CASCADE" constraintName="FK_model"/>
     </changeSet>
 
     <changeSet id="4" author="postgres">
-        <createTable tableName="post_downloaded">
+        <createTable tableName="post_downloaded_users">
             <column name="post_id" type="BIGINT">
                 <constraints nullable="false"/>
             </column>
@@ -94,12 +94,12 @@
                 <constraints nullable="false"/>
             </column>
         </createTable>
-        <addForeignKeyConstraint baseTableName="post_downloaded"
+        <addForeignKeyConstraint baseTableName="post_downloaded_users"
                                  baseColumnNames="post_id"
                                  referencedTableName="post"
                                  referencedColumnNames="id"
                                  onDelete="CASCADE" constraintName="FK_post"/>
-        <addForeignKeyConstraint baseTableName="post_downloaded"
+        <addForeignKeyConstraint baseTableName="post_downloaded_users"
                                  baseColumnNames="user_id"
                                  referencedTableName="user"
                                  referencedColumnNames="id"
@@ -107,7 +107,7 @@
     </changeSet>
 
     <changeSet id="5" author="postgres">
-        <createTable tableName="post_liked_by">
+        <createTable tableName="post_likedby_users">
             <column name="post_id" type="BIGINT">
                 <constraints nullable="false"/>
             </column>
@@ -115,16 +115,16 @@
                 <constraints nullable="false"/>
             </column>
         </createTable>
-        <addForeignKeyConstraint baseTableName="post_liked_by"
+        <addForeignKeyConstraint baseTableName="post_likedby_users"
                                  baseColumnNames="post_id"
                                  referencedTableName="post"
                                  referencedColumnNames="id"
-                                 onDelete="CASCADE" constraintName="FK_Post"/>
-        <addForeignKeyConstraint baseTableName="post_liked_by"
+                                 onDelete="CASCADE" constraintName="FK_post"/>
+        <addForeignKeyConstraint baseTableName="post_likedby_users"
                                  baseColumnNames="user_id"
                                  referencedTableName="user"
                                  referencedColumnNames="id"
-                                 onDelete="CASCADE" constraintName="FK_User"/>
+                                 onDelete="CASCADE" constraintName="FK_user"/>
     </changeSet>
 
 </databaseChangeLog>
